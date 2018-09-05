@@ -36,13 +36,19 @@ sites in the San Francisco Bay Area). In 1990, many providers served a
 limited geographic region and were thus known as *regional networks*.
 The regional networks were, in turn, connected by a nationwide backbone.
 In 1990, this backbone was funded by the National Science Foundation
-(NSF) and was therefore called the *NSFNET backbone*. Although the
-detail is not shown in this figure, the provider networks are typically
-built from a large number of point-to-point links (e.g., T1 and DS3
-links in the past, OC-48 and OC-192 SONET links today) that connect to
-routers; similarly, each end-user site is typically not a single network
-but instead consists of multiple physical networks connected by routers
-and bridges.
+(NSF) and was therefore called the *NSFNET backbone*.
+
+NSFNET gave way to Internet2, which still runs a backbone on behalf of
+Research and Education institutions in the US (there are similar R&E
+networks in other countries), but of course most people get their
+Interent connectivity from commercial providers. Although the detail
+is not shown in the figure, today the largest provider networks (they
+are called tier-1) are typically built from dozens of high-end routers
+located in major meteropolitan areas (colloquially referred to as "NFL
+cities") connected by point-to-point links (often with 100 Gbps 
+capacity). Similarly, each end-user site is typically not a single
+network but instead consists of multiple physical networks connected
+by switches and routers.
 
 Notice in that each provider and end-user is likely to be an
 administratively independent entity. This has some significant
@@ -81,7 +87,7 @@ can be used to partition a routing domain into subdomains called
 OSPF terminology here.) By adding this extra level of hierarchy, we
 enable single domains to grow larger without overburdening the routing
 protocols or resorting to the more complex interdomain routing protocols
-described below.
+described later.
 
 An area is a set of routers that are administratively configured to
 exchange link-state information with each other. There is one special
@@ -101,7 +107,7 @@ referred to as AS border routers for clarity.
 </figure>
 
 Routing within a single area is exactly as described in the previous
-Chapter. All the routers in the area send link-state advertisements to
+chapter. All the routers in the area send link-state advertisements to
 each other and thus develop a complete, consistent map of the area.
 However, the link-state advertisements of routers that are not area
 border routers do not leave the area in which they originated. This has
@@ -147,13 +153,13 @@ turns out that the need for scalability is often more important than the
 need to use the absolute shortest path.
 
 This illustrates an important principle in network design. There is
-frequently a trade-off between some sort of optimality and scalability.
+frequently a trade-off between scalability and some sort of optimality.
 When hierarchy is introduced, information is hidden from some nodes in
-the network, hindering their ability to make perfectly optimal
+the network, hindering their ability to make perfect
 decisions. However, information hiding is essential to scalability,
 since it saves all nodes from having global knowledge. It is invariably
 true in large networks that scalability is a more pressing design goal
-than perfect optimality.
+than selecting the optimal route.
 
 Finally, we note that there is a trick by which network administrators
 can more flexibly decide which routers go in area 0. This trick uses the
@@ -172,9 +178,9 @@ improve the optimality of routing.
 At the beginning of this chapter, we introduced the notion that the
 Internet is organized as autonomous systems, each of which is under the
 control of a single administrative entity. A corporation's complex
-internal network might be a single AS, as may the network of a single
-Internet Service Provider (ISP). [Figure 3](#autonomous) shows a
-simple network with two autonomous systems.
+internal network might be a single AS, as may the national network of
+any single Internet Service Provider (ISP). [Figure 3](#autonomous)
+shows a simple network with two autonomous systems.
 
 <figure class="line">
 	<a id="autonomous"></a>
@@ -231,15 +237,15 @@ of the Internet. The first was the Exterior Gateway Protocol (EGP),
 which had a number of limitations, perhaps the most severe of which was
 that it constrained the topology of the Internet rather significantly.
 EGP was designed when the Internet had a treelike topology, such as that
-illustrated in , and did not allow for the topology to become more
-general. Note that in this simple treelike structure there is a single
-backbone, and autonomous systems are connected only as parents and
-children and not as peers.
+illustrated in [Figure 1](#inet-tree), and did not allow for the
+topology to become more general. Note that in this simple treelike
+structure there is a single backbone, and autonomous systems are
+connected only as parents and children and not as peers.
 
-The replacement for EGP is the Border Gateway Protocol (BGP), which is
-in its fourth version at the time of this writing (BGP-4). BGP is often
-regarded as one of the more complex parts of the Internet. We'll cover
-some of its high points here.
+The replacement for EGP is the Border Gateway Protocol (BGP), which has
+iterated through four versions (BGP-4). BGP is often regarded as one
+of the more complex parts of the Internet. We'll cover some of its
+high points here.
 
 Unlike its predecessor EGP, BGP makes virtually no assumptions about how
 autonomous systems are interconnected—they form an arbitrary graph.
@@ -285,7 +291,7 @@ broad types:
     and that is designed to carry both transit and local traffic, such
     as the backbone providers in [Figure 4](#inet-1995).
 
-Whereas the discussion of routing in the previous Chapter focused on
+Whereas the discussion of routing in the previous chapter focused on
 finding optimal paths based on minimizing some sort of link metric, the
 goals of interdomain routing are rather more complex. First, it is
 necessary to find *some* path to the intended destination that is loop
@@ -302,10 +308,10 @@ able to forward any packet destined anywhere in the Internet. That means
 having a routing table that will provide a match for any valid IP
 address. While CIDR has helped to control the number of distinct
 prefixes that are carried in the Internet's backbone routing, there is
-inevitably a lot of routing information to pass around—on the order of
-300,000 prefixes at the time of writing.
+inevitably a lot of routing information to pass around—roughly
+700,000 prefixes in mid-2018.
 
-A further challenge in interdomain routing arises from the auton- omous
+A further challenge in interdomain routing arises from the autonomous
 nature of the domains. Note that each domain may run its own interior
 routing protocols and use any scheme it chooses to assign metrics to
 paths. This means that it is impossible to calculate meaningful path
@@ -347,7 +353,7 @@ autonomous systems. It is common to find that border routers are also
 BGP speakers, but that does not have to be the case.
 
 BGP does not belong to either of the two main classes of routing
-protocols, distance-vector and link-state protocols. Unlike these
+protocols, distance-vector or link-state. Unlike these
 protocols, BGP advertises *complete paths* as an enumerated list of
 autonomous systems to reach a particular network. It is sometimes called
 a *path-vector* protocol for this reason. The advertisement of complete
@@ -399,16 +405,8 @@ useful path for it to use.
 In order for this loop prevention technique to work, the AS numbers
 carried in BGP clearly need to be unique. For example, AS 2 can only
 recognize itself in the AS path in the above example if no other AS
-identifies itself in the same way. AS numbers have until recently been
-16-bit numbers, and they are assigned by a central authority to assure
-uniqueness. While 16 bits only allows about 65,000 autonomous systems,
-which might not seem like a lot, we note that a stub AS does not need a
-unique AS number, and this covers the overwhelming majority of
-nonprovider networks.
-
-> 32-bit AS numbers have also been defined and came into use around 
-> 2009, thus ensuring that AS number space will not become a scarce 
-> resource. 
+identifies itself in the same way. AS numbers are now 32-bits long,
+and they are assigned by a central authority to assure uniqueness.
 
 A given AS will only advertise routes that it considers good enough for
 itself. That is, if a BGP speaker has a choice of several different
@@ -520,7 +518,7 @@ routes that are outside the AS. Such a router can inject a *default
 route* into the intradomain routing protocol. In effect, this is a
 statement that any network that has not been explicitly advertised in
 the intradomain protocol is reachable through the border router. Recall
-from the discussion of IP forwarding in the previous Chapter that the
+from the discussion of IP forwarding in the previous chapter that the
 default entry in the forwarding table comes after all the more specific
 entries, and it matches anything that failed to match a specific entry.
 
@@ -630,7 +628,7 @@ Generation, or IPng. As the work progressed, an official IP version
 number was assigned, so IPng is now known as IPv6. Note that the version
 of IP discussed so far in this chapter is version 4 (IPv4). The apparent
 discontinuity in numbering is the result of version number 5 being used
-for an experimental protocol some years ago.
+for an experimental protocol many years ago.
 
 The significance of changing to a new version of IP caused a snowball
 effect. The general feeling among network designers was that if you are
@@ -663,9 +661,10 @@ IPng was that there must be a transition plan to move from the current
 version of IP (version 4) to the new version. With the Internet being so
 large and having no centralized control, it would be completely
 impossible to have a "flag day" on which everyone shut down their hosts
-and routers and installed a new version of IP. Thus, there will probably
-be a long transition period in which some hosts and routers will run
-IPv4 only, some will run IPv4 and IPv6, and some will run IPv6 only.
+and routers and installed a new version of IP. Thus, we can expect
+there to be a long transition period in which some hosts and routers
+will run IPv4 only, some will run IPv4 and IPv6, and some will run
+IPv6 only. (So far, that transition period has lasted over 20 years!)
 
 The IETF appointed a committee called the IPng Directorate to collect
 all the inputs on IPng requirements and to evaluate proposals for a
@@ -994,7 +993,7 @@ without some preconfiguration. One goal of IPv6, therefore, is to
 provide support for autoconfiguration, sometimes referred to as
 *plug-and-play* operation.
 
-As we saw in the previous Chapter, autoconfiguration is possible for
+As we saw in the previous chapter, autoconfiguration is possible for
 IPv4, but it depends on the existence of a server that is configured to
 hand out addresses and other configuration information to Dynamic Host
 Configuration Protocol (DHCP) clients. The longer address format in IPv6
@@ -1069,4 +1068,3 @@ quality-of-service. It is interesting to note that, in most of these
 areas, the IPv4 and IPv6 capabilities have become virtually
 indistinguishable, so that the main driver for IPv6 remains the need for
 larger addresses.
-

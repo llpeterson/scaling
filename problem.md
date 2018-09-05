@@ -8,10 +8,10 @@ We have now seen how to build an internetwork that consists of a number
 of networks of different types. That is, we have dealt with the problem
 of *heterogeneity*. The second critical problem in
 internetworking—arguably the fundamental problem for all
-networking—is *scale*. To understand the problem of scaling, it is
-worth considering the growth of the Internet, which has roughly doubled
-in size each year for 30 years. This sort of growth forces us to face a
-number of challenges.
+networking—is *scale*. To understand the problem of scaling
+a network, it is worth considering the growth of the Internet, which
+has roughly doubled in size each year for 30 years. This sort of
+growth forces us to face a number of challenges.
 
 Chief among these is how do you build a routing system that can handle
 hundreds of thousands of networks and billions of end nodes? As we will
