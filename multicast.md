@@ -1,21 +1,24 @@
 # {{ page.title }}
 
-As we saw in an earlier chapter, multi-access networks like Ethernet
+Multi-access networks like Ethernet
 implement multicast in hardware. There are, however, applications that
 need a broader multicasting capability that is effective at the scale of
-internetworks. For example, when a radio station is broadcast over the
+the Internet. For example, when a radio station is broadcast over the
 Internet, the same data must be sent to all the hosts where a user has
 tuned in to that station. In that example, the communication is
 one-to-many. Other examples of one-to-many applications include
-transmitting the same news, current stock prices, or software updates to
-multiple hosts. There are also applications whose communication is
-many-to-many, such as multimedia teleconferencing, online multiplayer
-gaming, or distributed simulations. In such cases, members of a group
-receive data from multiple senders, typically each other. From any
-particular sender, they all receive the same data.
+transmitting the same news, current stock prices, software updates,
+or TV channels to multiple hosts. The latter example is commonly
+called IPTV.
 
-Normal IP communication, in which each packet must be addressed and sent
-to a single host, is not well suited to such applications. If an
+There are also applications whose communication is many-to-many, such
+as multimedia teleconferencing, online multiplayer gaming, or
+distributed simulations. In such cases, members of a group receive
+data from multiple senders, typically each other. From any particular
+sender, they all receive the same data.
+
+Normal IP communication, in which each packet must be addressed and
+sent to a single host, is not well suited to such applications. If an
 application has data to send to a group, it would have to send a
 separate packet with the identical data to each member of the group.
 This redundancy consumes more bandwidth than necessary. Furthermore, the
@@ -57,7 +60,7 @@ would have been sent many times over the same links, especially those
 near to the sending host.
 
 IP's original many-to-many multicast has been supplemented with support
-for a form of one-to-many multicast. In this model of one-to- many
+for a form of one-to-many multicast. In this model of one-to-many
 multicast, called *Source-Specific Multicast* (SSM), a receiving host
 specifies both a multicast group and a specific sending host. The
 receiving host would then receive multicasts addressed to the specified
@@ -73,7 +76,7 @@ Protocol* (IGMP); in IPv6, it is *Multicast Listener Discovery* (MLD).
 The router then has the responsibility for making multicast behave
 correctly with regard to that host. Because a host may fail to leave a
 multicast group when it should (after a crash or other failure, for
-example), the router periodically polls the LAN to determine which
+example), the router periodically polls the network to determine which
 groups are still of interest to the attached hosts.
 
 ## Multicast Addresses
@@ -87,8 +90,8 @@ by different domains.
 
 There are thus 28 bits of possible multicast address in IPv4 when we
 ignore the prefix shared by all multicast addresses. This presents a
-problem when attempting to take advantage of hardware multicasting on a
-local area network (LAN). Let's take the case of Ethernet. Ethernet
+problem when attempting to take advantage of hardware multicasting on
+a local area network (LAN). Let's take the case of Ethernet. Ethernet
 multicast addresses have only 23 bits when we ignore their shared
 prefix. In other words, to take advantage of Ethernet multicasting, IP
 has to map 28-bit IP multicast addresses into 23-bit Ethernet multicast
@@ -96,6 +99,14 @@ addresses. This is implemented by taking the low-order 23 bits of any IP
 multicast address to use as its Ethernet multicast address and ignoring
 the high-order 5 bits. Thus, 32 (2$$^5$$) IP addresses map into
 each one of the Ethernet addresses.
+
+> In this section we use Ethernet as a canonical example of a
+> networking technology that supports multicast in hardware, but the
+> same is also true of PON (Passive Optical Networks), which is the
+> access network technology often used to deliver
+> fiber-to-the-home. In fact, IP Multicast over PON is now a common
+> way to deliver IPTV to homes.
+
 
 When a host on an Ethernet joins an IP multicast group, it configures
 its Ethernet interface to receive any packets with the corresponding
@@ -280,10 +291,10 @@ tree for a group, not one for every sender to a group.
 <figure class="line">
 	<a id="pim-shared"></a>
 	<img src="figures/f04-14-9780123850591.png" width="600px"/>
-	<figcaption>PIM operation: (a) R4 sends `Join` to RP and joins
+	<figcaption>PIM operation: (a) R4 sends a Join message to RP and joins
 	shared tree; (b) R5 joins shared tree; (c) RP builds
-	source-specific tree to R1 by sending `Join` to R1; (d) R4 and R5
-	build source-specific tree to R1 by sending `Join`s to
+	source-specific tree to R1 by sending a Join message to R1; (d) R4 and R5
+	build source-specific tree to R1 by sending Join messages to
 	R1.</figcaption>
 </figure>
 
@@ -436,10 +447,10 @@ multicast group address, and the IP address of the originating RP.
 <figure class="line">
 	<a id="msdp"></a>
 	<img src="figures/f04-16-9780123850591.png" width="500px"/>
-	<figcaption>MSDP operation: (a) The source SR sends a `Register`
-	to its domain's RP, RP1; then RP1 sends a source-specific `Join`
-	to SR and an MSDP `Source Active` to its MSDP peer in Domain B,
-	RP2; then RP2 sends a source-specific `Join` to SR. (b) As a
+	<figcaption>MSDP operation: (a) The source SR sends a Register message
+	to its domain's RP, RP1; then RP1 sends a source-specific Join message
+	to SR and an MSDP Source Active message to its MSDP peer in Domain B,
+	RP2; then RP2 sends a source-specific Join message to SR. (b) As a
 	result, RP1 and RP2 are in the source-specific tree for source
 	SR.</figcaption>
 </figure>
@@ -547,7 +558,7 @@ illustrates the flow of multicast traffic originating at R1.
 <figure class="line">
 	<a id="pim-bidir"></a>
 	<img src="figures/f04-17-9780123850591.png" width="400px"/>
-	<figcaption>BIDIR-PIM operation: (a) R2 and R3 send `Join`s toward
+	<figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join message toward
 	the RP address that terminate when they reach a router on the RP
 	address's link. (b) A multicast packet from R1 is forwarded
 	upstream to the RP address's link and downstream wherever it

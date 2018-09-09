@@ -122,7 +122,7 @@ Note that, while the forwarding algorithm has been changed from longest
 match to exact match, the routing algorithm can be any standard IP
 routing algorithm (e.g., OSPF). The path that a packet will follow in
 this environment is the exact same path that it would have followed if
-MPLS were not involved—the path chosen by the IP routing algorithms.
+MPLS were not involved: the path chosen by the IP routing algorithms.
 All that has changed is the forwarding algorithm.
 
 An important fundamental concept of MPLS is illustrated by this example.
@@ -226,14 +226,15 @@ software. Furthermore, an MPLS LSR might continue to support standard
 ATM capabilities at the same time as it runs the MPLS control protocols,
 in what is referred to as "ships in the night" mode.
 
-More recently, the idea of running IP control protocols on devices that
-are unable to forward IP packets natively has been extended to optical
-switches and STDM devices such as SONET multiplexors. This is known as
-*Generalized MPLS* (GMPLS). Part of the motivation for GMPLS was to
-provide routers with topological knowledge of an optical network, just
-as in the ATM case. Even more important was the fact that there were no
-standard protocols for controlling optical devices, so MPLS seemed like
-a natural fit for that job.
+The idea of running IP control protocols on devices that
+are unable to forward IP packets natively has been extended to
+Wavelength Division Multiplexing (WDM) and Time Division Multiplexing
+(TDM) networks (e.g., SONET). This is known as *Generalized MPLS*
+(GMPLS). Part of the motivation for GMPLS was to provide routers with
+topological knowledge of an optical network, just as in the ATM
+case. Even more important was the fact that there were no standard
+protocols for controlling optical devices, so MPLS proved to be a
+natural fit for that job.
 
 ## Explicit Routing
 
