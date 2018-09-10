@@ -18,14 +18,13 @@ much smaller than the total routing problem would be. BGP, the
 interdomain routing protocol of the Internet, has been remarkably
 successful in dealing with the growth of the Internet.
 
-In spite of the many steps taken to scale IPv4, it is clear that a new,
-longer address format will soon be needed. This requires a new IP
-datagram format and a new version of the protocol. Originally known as
-Next Generation IP (IPng), this new protocol is now known as IPv6, and
-it provides a 128-bit address with (mostly) CIDR-like addressing and
-routing. While many new capabilities have been claimed for IPv6, its
-main advantage remains its ability to support an extremely large number
-of addressable devices.
+In spite of the many steps taken to scale IPv4, the need for a longer
+address format is inevitable. This requires a new IP datagram format
+and a new version of the protocol. This "new" protocol (now 20 years
+old) is now known as IPv6, and it provides a 128-bit address with
+(mostly) CIDR-like addressing and routing. While many new capabilities
+have been claimed for IPv6, its main advantage remains its ability to
+support an extremely large number of addressable devices.
 
 Finally, the Internet also needs to evolve in function as well as size.
 In that regard, we looked at three enhancements to the original IP

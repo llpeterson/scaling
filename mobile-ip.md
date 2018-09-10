@@ -6,33 +6,30 @@ designed in an era when computers were large, immobile devices, and,
 while the Internet's designers probably had some notion that mobile
 devices might appear in the future, it's fair to assume it was not a top
 priority to accommodate them. Today, of course, mobile computers are
-everywhere, notably in the forms of laptops and IP-enabled mobile
-phones, and increasingly in other forms such as sensors. In this
-section, we will look at some of the challenges posed by the appearance
-of mobile devices and some of the current approaches to accommodating
+everywhere, notably in the forms of laptops and smartphones, and
+and increasingly in other forms, such as drones. In this section, we
+will look at some of the challenges posed by the appearance of mobile
+devices and some of the current approaches to accommodating
 them.
 
 ## Challenges for Mobile Networking
 
-Most readers of this book have probably used a networked mobile device
-at some point, and for many of us mobile devices have become the norm.
-So one might reasonably think that mobile networking is a solved
-problem. Certainly, it is easy enough today to turn up in a wireless
-hotspot, connect to the Internet using 802.11 or some other wireless
-networking protocol, and obtain pretty good Internet service. One key
-enabling technology that made the hotspot feasible is DHCP. You can
-settle in at a coffee shop, open your laptop, obtain an IP address for
-your laptop, and get your laptop talking to a default router and a
-Domain Name System (DNS) server, and for a broad class of applications
-you have everything you need.
+It is easy enough today to turn up in a wireless hotspot,
+connect to the Internet using 802.11 or some other wireless networking
+protocol, and obtain pretty good Internet service. One key enabling
+technology that made the hotspot feasible is DHCP. You can settle
+in at a coffee shop, open your laptop, obtain an IP address for your
+laptop, and get your laptop talking to a default router and a Domain
+Name System (DNS) server, and for a broad class of applications you
+have everything you need.
 
 If we look a little more closely, however, it's clear that for some
 application scenarios, just getting a new IP address every time you
 move—which is what DHCP does for you—isn't always enough. Suppose
 you are using your laptop or smartphone for a Voice over IP telephone
 call, and while talking on the phone you move from one hotspot to
-another, or even switch from 802.11 to 3G wireless for your Internet
-connection.
+another, or even switch from Wi-Fi to the cellular network for your
+Internet connection.
 
 Clearly, when you move from one access network to another, you need to
 get a new IP address—one that corresponds to the new network. But, the
@@ -77,12 +74,21 @@ of separating locators from identifiers has been around for a long time,
 and most of the approaches to handling mobility described below provide
 such a separation in some form.
 
-The assumption that IP addresses don't change shows up in many different
-places. For example, as we'll see in the next chapter, transport
-protocols like TCP have historically made assumptions about the IP
-address staying constant for the life of a connection, so transport
-protocols operating in a mobile world require some re-evaluation of that
-assumption.
+The assumption that IP addresses don't change shows up in many
+different places. For example, transport protocols like TCP have
+historically made assumptions about the IP address staying constant
+for the life of a connection, so one approach could be to redesign
+transport protocols so they can operate with changing end-point
+addresses.
+
+But rather than try to change TCP, a common alternative is for the
+application to periodically re-establish the TCP connection in case
+the client's IP address has changed. As strange as this sounds, if the
+application is HTTP-based (e.g., a web browser like Chrome or a
+streaming application like Netflix) then that exactly what happens. In
+other words, the strategy is for the application to work around situations
+where the user's IP address may have changed, instead of tryin to
+maintain the appearence that it does not change.
 
 While we are all familiar with endpoints that move, it is worth noting
 that routers can also move. This is certainly less common today than
@@ -92,15 +98,6 @@ trying to deploy a network after some natural disaster has knocked out
 all the fixed infrastructure. There are additional considerations when
 *all* the nodes in a network, not just the endpoints, are mobile, a
 topic we will discuss later in this section.
-
-As with many technologies, support for mobility raises issues of
-incremental deployment. Given that, for its first couple of decades, the
-Internet consisted entirely of nodes that didn't move, it's fair to
-assume that there will be a lot of routers and hosts around for the
-foreseeable future that make that assumption. Hence, mobility solutions
-need to deal with incremental deployment. Conversely, IP version 6 had
-the ability to make mobility part of its design from the outset, which
-provides it with some advantages.
 
 Before we start to look at some of the approaches to supporting mobile
 devices, a couple of points of clarification. It is common to find that
@@ -125,8 +122,7 @@ Internet we need to support mobility more broadly across networks.
 Mobile IP is the primary mechanism in today's Internet architecture to
 tackle the problem of routing packets to mobile hosts. It introduces a
 few new capabilities but does not require any change from non-mobile
-hosts or most routers—thus tackling the incremental deployment issue
-raised above.
+hosts or most routers—thus making it incrementally deployable.
 
 The mobile host is assumed to have a permanent IP address, called its
 *home address*, which has a network prefix equal to that of its *home
@@ -312,7 +308,7 @@ in IPv4 and IPv6. Most importantly, it was possible to build mobility
 support into the standards for IPv6 pretty much from the beginning, thus
 alleviating a number of incremental deployment problems. (It may be more
 correct to say that IPv6 is one big incremental deployment problem,
-which, if solved, will deliver mobility support as part of the package.)
+which, once solved, will deliver mobility support as part of the package.)
 
 Since all IPv6-capable hosts can acquire an address whenever they are
 attached to a foreign network (using several mechanisms defined as part
@@ -339,8 +335,8 @@ important, so that smaller devices with limited battery power can by
 built. There is also the problem of *ad hoc* mobile networks—enabling
 a group of mobile nodes to form a network in the absence of any fixed
 nodes—which has some special challenges. A
-particularly challenging class of mobile networks, *sensor networks*,
-was mentioned previously. Sensors typically are small, inexpensive, and
+particularly challenging class of mobile networks is *sensor networks*.
+Sensors typically are small, inexpensive, and
 often battery powered, meaning that issues of very low power consumption
 and limited processing capability must also be considered. Furthermore,
 since wireless communications and mobility typically go hand in hand,
