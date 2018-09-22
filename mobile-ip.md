@@ -45,7 +45,7 @@ and then on to the mobile node.
 
 <figure class="line">
 	<a id="mobileeg"></a>
-	<img src="figures/f04-26-9780123850591.png" width="500px"/>
+	<img src="figures/f04-26-22092018.png" width="500px"/>
 	<figcaption>Forwarding packets from a correspondent node to a
 	mobile node.</figcaption>
 </figure>
