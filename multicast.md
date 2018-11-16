@@ -107,7 +107,6 @@ each one of the Ethernet addresses.
 > fiber-to-the-home. In fact, IP Multicast over PON is now a common
 > way to deliver IPTV to homes.
 
-
 When a host on an Ethernet joins an IP multicast group, it configures
 its Ethernet interface to receive any packets with the corresponding
 Ethernet multicast address. Unfortunately, this causes the receiving
