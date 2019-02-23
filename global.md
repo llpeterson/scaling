@@ -75,7 +75,7 @@ provided by Classless Interdomain Routing (CIDR) and subnetting, can
 improve the scalability of routing. In the next two sections, we'll see
 further uses of hierarchy (and its partner, aggregation) to provide
 greater scalability, first in a single domain and then between domains.
-Our final subsection looks at the emerging standards for IP version 6,
+Our final subsection looks at IP version 6,
 the invention of which was largely the result of scalability concerns.
 
 ## Routing Areas

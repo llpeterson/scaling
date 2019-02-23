@@ -174,13 +174,6 @@ circuit identifier (VCI) and virtual path identifier (VPI) fields.
 	a frame-encapsulated packet.</figcaption>
 </figure>
 
-<figure class="line">
-	<a id="overlay"></a>
-	<img src="figures/f04-21-9780123850591.png" width="400px"/>
-	<figcaption>(a) Routers connect to each other using an overlay of
-	virtual circuits. (b) Routers peer directly with LSRs.</figcaption>
-</figure>
-
 Having now devised a scheme by which an ATM switch can function as an
 LSR, what have we gained? One thing to note is that we could now build a
 network that uses a mixture of conventional IP routers, label edge
@@ -197,6 +190,13 @@ exist because of the significant installed base of ATM switches in
 network backbones, which in turn is partly a result of ATM's ability to
 support a range of capabilities such as circuit emulation and virtual
 circuit services.
+
+<figure class="line">
+	<a id="overlay"></a>
+	<img src="figures/f04-21-9780123850591.png" width="400px"/>
+	<figcaption>(a) Routers connect to each other using an overlay of 
+	virtual circuits. (b) Routers peer directly with LSRs.</figcaption>
+</figure>
 
 In an overlay network, each router would potentially be connected to
 each of the other routers by a virtual circuit, but in this case for
