@@ -242,7 +242,7 @@ topology to become more general. Note that in this simple treelike
 structure there is a single backbone, and autonomous systems are
 connected only as parents and children and not as peers.
 
-The replacement for EGP is the Border Gateway Protocol (BGP), which has
+The replacement for EGP was the Border Gateway Protocol (BGP), which has
 iterated through four versions (BGP-4). BGP is often regarded as one
 of the more complex parts of the Internet. We'll cover some of its
 high points here.
@@ -251,9 +251,10 @@ Unlike its predecessor EGP, BGP makes virtually no assumptions about how
 autonomous systems are interconnected—they form an arbitrary graph.
 This model is clearly general enough to accommodate non-tree-structured
 internetworks, like the simplified picture of a multi-provider Internet
-shown in . (It turns out there is still some sort of structure to the
-Internet, as we'll see below, but it's nothing like as simple as a tree,
-and BGP makes no assumptions about such structure.)
+shown in [Figure 4](#inet-1995). (It turns out there is still some
+sort of structure to the Internet, as we'll see below, but it's
+nothing like as simple as a tree, and BGP makes no assumptions about
+such structure.)
 
 <figure class="line">
 	<a id="inet-1995"></a>
