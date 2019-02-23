@@ -87,7 +87,7 @@ the client's IP address has changed. As strange as this sounds, if the
 application is HTTP-based (e.g., a web browser like Chrome or a
 streaming application like Netflix) then that exactly what happens. In
 other words, the strategy is for the application to work around situations
-where the user's IP address may have changed, instead of tryin to
+where the user's IP address may have changed, instead of trying to
 maintain the appearence that it does not change.
 
 While we are all familiar with endpoints that move, it is worth noting
@@ -113,7 +113,7 @@ Finally, in this chapter we are mostly interested in what we might call
 *network-layer mobility*. That is, we are interested in how to deal with
 nodes that move from one network to another. Moving from one access
 point to another in the same 802.11 network can be handled by mechanisms
-specific to 802.11, and cellular telephone networks also have ways to
+specific to 802.11, and cellular networks also have ways to
 handle mobility, of course, but in large heterogeneous systems like the
 Internet we need to support mobility more broadly across networks.
 
