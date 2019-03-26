@@ -152,14 +152,15 @@ flow between them because they are in different nonbackbone areas. It
 turns out that the need for scalability is often more important than the
 need to use the absolute shortest path.
 
-This illustrates an important principle in network design. There is
-frequently a trade-off between scalability and some sort of optimality.
-When hierarchy is introduced, information is hidden from some nodes in
-the network, hindering their ability to make perfect
-decisions. However, information hiding is essential to scalability,
-since it saves all nodes from having global knowledge. It is invariably
-true in large networks that scalability is a more pressing design goal
-than selecting the optimal route.
+> [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+> This illustrates an important principle in network design. There is
+> frequently a trade-off between scalability and some sort of optimality.
+> When hierarchy is introduced, information is hidden from some nodes in
+> the network, hindering their ability to make perfect
+> decisions. However, information hiding is essential to scalability,
+> since it saves all nodes from having global knowledge. It is invariably
+> true in large networks that scalability is a more pressing design goal
+> than selecting the optimal route.
 
 Finally, we note that there is a trick by which network administrators
 can more flexibly decide which routers go in area 0. This trick uses the
@@ -493,17 +494,18 @@ have other providers as their customers. At the top, we have providers
 who have customers and peers but are not customers of anyone. These
 providers are known as the *Tier-1* providers.
 
-Let's return to the real question: How does all this help us to build
-scalable networks? First, the number of nodes participating in BGP is on
-the order of the number of autonomous systems, which is much smaller
-than the number of networks. Second, finding a good interdomain route is
-only a matter of finding a path to the right border router, of which
-there are only a few per AS. Thus, we have neatly subdivided the routing
-problem into manageable parts, once again using a new level of hierarchy
-to increase scalability. The complexity of interdomain routing is now on
-the order of the number of autonomous systems, and the complexity of
-intradomain routing is on the order of the number of networks in a
-single AS.
+> [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+> Let's return to the real question: How does all this help us to build
+> scalable networks? First, the number of nodes participating in BGP is on
+> the order of the number of autonomous systems, which is much smaller
+> than the number of networks. Second, finding a good interdomain route is
+> only a matter of finding a path to the right border router, of which
+> there are only a few per AS. Thus, we have neatly subdivided the routing
+> problem into manageable parts, once again using a new level of hierarchy
+> to increase scalability. The complexity of interdomain routing is now on
+> the order of the number of autonomous systems, and the complexity of
+> intradomain routing is on the order of the number of networks in a
+> single AS.
 
 ### Integrating Interdomain and Intradomain Routing
 
