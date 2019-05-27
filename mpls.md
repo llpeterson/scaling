@@ -45,7 +45,7 @@ described an idea called *threaded indices*. A very similar idea is now
 implemented in MPLS-enabled routers. The following example shows how
 this idea works.
 
-<figure class="line">
+<figure>
 	<a id="mpls-dest"></a>
 	<img src="figures/f04-18-9780123850591.png" width="500px"/>
 	<figcaption>Routing tables in example network.</figcaption>
@@ -78,7 +78,7 @@ In [Figure 2(c)](#label-dist), we see another label advertisement from
 router R3 to R2 for the prefix `18.1.1`, and R2 places the remote
 label that it learned from R3 in the appropriate place in its table.
 
-<figure class="line">
+<figure>
 	<a id="label-dist"></a>
 	<img src="figures/f04-19-9780123850591.png" width="500px"/>
 	<figcaption>(a) R2 allocates labels and advertises bindings to
@@ -167,7 +167,7 @@ in a place where the switch can use it, and that means it needs to be in
 the ATM cell header, exactly where one would normally find the virtual
 circuit identifier (VCI) and virtual path identifier (VPI) fields.
 
-<figure class="line">
+<figure>
 	<a id="labels"></a>
 	<img src="figures/f04-20-9780123850591.png" width="600px"/>
 	<figcaption>(a) Label on an ATM-encapsulated packet; (b) label on
@@ -191,7 +191,7 @@ network backbones, which in turn is partly a result of ATM's ability to
 support a range of capabilities such as circuit emulation and virtual
 circuit services.
 
-<figure class="line">
+<figure>
 	<a id="overlay"></a>
 	<img src="figures/f04-21-9780123850591.png" width="400px"/>
 	<figcaption>(a) Routers connect to each other using an overlay of 
@@ -253,7 +253,7 @@ of how the explicit routing capability of MPLS might be applied. This
 sort of network is often called a *fish* network because of its shape
 (the routers R1 and R2 form the tail; R7 is at the head).
 
-<figure class="line">
+<figure>
 	<a id="fish"></a>
 	<img src="figures/f04-22-9780123850591.png" width="450px"/>
 	<figcaption>A network requiring explicit routing.</figcaption>
@@ -332,7 +332,7 @@ tunnel, they could send ATM cells across the tunnel and emulate an ATM
 circuit. The term for this technique within the IETF is *pseudowire
 emulation*. [Figure 6](#atm-tunnel) illustrates the idea.
 
-<figure class="line">
+<figure>
 	<a id="atm-tunnel"></a>
 	<img src="figures/f04-23-9780123850591.png" width="600px"/>
 	<figcaption>An ATM circuit is emulated by a tunnel.</figcaption>
@@ -409,7 +409,7 @@ ATM cell would be forwarded. [Figure 7](#pw-eg) illustrates the steps.
 6. The tail router modifies the ATM VCI to the correct value (202 in
     this case) and sends it out the correct port.
 
-<figure class="line">
+<figure>
 	<a id="pw-eg"></a>
 	<img src="figures/f04-24-9780123850591.png" width="600px"/>
 	<figcaption>Forward ATM cells along a tunnel.</figcaption>
@@ -426,7 +426,7 @@ layer 2 services, including Frame Relay and Ethernet. It is worth noting
 that virtually identical capabilities can be provided using IP tunnels;
 the main advantage of MPLS here is the shorter tunnel header.
 
-<figure class="line">
+<figure>
 	<a id="mpls-vpn"></a>
 	<img src="figures/f04-25-9780123850591.png" width="600px"/>
 	<figcaption>Example of a layer 3 VPN. Customers A and B each

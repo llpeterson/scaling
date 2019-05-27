@@ -13,7 +13,7 @@ numbers. This section looks at a variety of techniques that greatly
 improve scalability and that have enabled the Internet to grow as far as
 it has.
 
-<figure class="line">
+<figure>
 	<a id="inet-tree"></a>
 	<img src="figures/f04-01-9780123850591.png" width="600px"/>
 	<figcaption>The tree structure of the Internet in 1990.</figcaption>
@@ -100,7 +100,7 @@ and a nonbackbone area is an area border router (ABR). Note that these
 are distinct from the routers that are at the edge of an AS, which are
 referred to as AS border routers for clarity.
 
-<figure class="line">
+<figure>
 	<a id="ospf-area"></a>
 	<img src="figures/f04-02-9780123850591.png" width="500px"/>
 	<figcaption>A domain divided into areas.</figcaption>
@@ -183,7 +183,7 @@ internal network might be a single AS, as may the national network of
 any single Internet Service Provider (ISP). [Figure 3](#autonomous)
 shows a simple network with two autonomous systems.
 
-<figure class="line">
+<figure>
 	<a id="autonomous"></a>
 	<img src="figures/f04-03-9780123850591.png" width="400px"/>
 	<figcaption>A network with two autonomous systems.</figcaption>
@@ -257,7 +257,7 @@ sort of structure to the Internet, as we'll see below, but it's
 nothing like as simple as a tree, and BGP makes no assumptions about
 such structure.)
 
-<figure class="line">
+<figure>
 	<a id="inet-1995"></a>
 	<img src="figures/f04-04-9780123850591.png" width="600px"/>
 	<figcaption>A simple multi-provider Internet.</figcaption>
@@ -363,7 +363,7 @@ paths is necessary to enable the sorts of policy decisions described
 above to be made in accordance with the wishes of a particular AS. It
 also enables routing loops to be readily detected.
 
-<figure class="line">
+<figure>
 	<a id="bgpeg"></a>
 	<img src="figures/f04-05-9780123850591.png" width="500px"/>
 	<figcaption>Example of a network running BGP.</figcaption>
@@ -381,7 +381,7 @@ receiving this advertisement, can advertise, "The networks 128.96,
 2)." Similarly, it could advertise, "The networks 192.12.69, 192.4.54,
 and 192.4.23 can be reached along the path (AS 1, AS 3)."
 
-<figure class="line">
+<figure>
 	<a id="aspath"></a>
 	<img src="figures/f04-06-9780123850591.png" width="500px"/>
 	<figcaption>Example of loop among autonomous systems.</figcaption>
@@ -428,7 +428,7 @@ the format of which is shown in [Figure 7](#bgpup). (Note that the
 fields in this figure are multiples of 16 bits, unlike other packet
 formats in this chapter.)
 
-<figure class="line">
+<figure>
 	<a id="bgpup"></a>
 	<img src="figures/f04-07-9780123850591.png" width="200px"/>
 	<figcaption>BGP-4 update packet format.</figcaption>
@@ -453,7 +453,7 @@ systems. The most common relationships are illustrated in
 [Figure 8](#as-rels). The three common relationships and the policies
 that go with them are as follows:
 
-<figure class="line">
+<figure>
 	<a id="as-rels"></a>
 	<img src="figures/f04-08-9780123850591.png" width="500px"/>
 	<figcaption>Common AS relationships.</figcaption>
@@ -555,7 +555,7 @@ router using a conventional intradomain protocol with no injected
 information. By combining these two sets of information, each router in
 the AS is able to determine the appropriate next hop for all prefixes.
 
-<figure class="line">
+<figure>
 	<a id="ibgp"></a>
 	<img src="figures/f04-09-9780123850591.png" width="500px"/>
 	<figcaption>Example of interdomain and intradomain routing. All
@@ -571,7 +571,7 @@ how to reach various prefixes. These three border routers communicate
 with other and with the interior routers B and C by building a mesh of
 iBGP sessions among all the routers in the AS. Let's now focus in on how
 router B builds up its complete view of how to forward packets to any
-prefix. Look at the top left of [Table](#ibgptab), which
+prefix. Look at the top left of [Figure 10](#ibgptab), which
 shows the information that router B learns from its iBGP sessions. It
 learns that some prefixes are best reached via router A, some via D, and
 some via E. At the same time, all the routers in the AS are also running
@@ -590,7 +590,7 @@ packet destined for 18.0/16 should be forwarded toward C. In this way,
 any router in the AS can build up a complete routing table for any
 prefix that is reachable via some border router of the AS.
 
-<figure class="line">
+<figure>
 	<a id="ibgptab"></a>
 	<img src="figures/f04-10-9780123850591.png" width="500px"/>
 	<figcaption>BGP routing table, IGP routing table, and combined
@@ -716,8 +716,9 @@ The current assignment of prefixes is listed in [Table 1](#v6tab).
 | 1111 1110 10 | Link-local unicast |
 | Everything else | Global Unicast |
 
-{% center %} *Table 1. Address Prefix Assignments for IPv6*
-{% endcenter %}
+<table>
+<caption>Table 1. Address Prefix Assignments for IPv6</caption>
+</table>
 
 This allocation of the address space warrants a little discussion.
 First, the entire functionality of IPv4's three main address classes (A,
@@ -874,7 +875,7 @@ For example, a provider with few customers could have a longer prefix
 (and thus less total address space available) than one with many
 customers.
 
-<figure class="line">
+<figure>
 	<a id="v6addr"></a>
 	<img src="figures/f04-11-9780123850591.png" width="500px"/>
 	<figcaption>An IPv6 provider-based unicast address.</figcaption>
@@ -922,7 +923,7 @@ fragmentation-related fields of IPv4 are not included in the IPv6
 header. The `HopLimit` field is simply the `TTL` of IPv4, renamed to
 reflect the way it is actually used.
 
-<figure class="line">
+<figure>
 	<a id="v6header"></a>
 	<img src="figures/f04-12-9780123850591.png" width="500px"/>
 	<figcaption>IPv6 packet header.</figcaption>
@@ -949,7 +950,7 @@ addition, the new formatting of options as extension headers means that
 they can be of arbitrary length, whereas in IPv4 they were limited to
 44 bytes at most. We will see how some of the options are used below.
 
-<figure class="line">
+<figure>
 	<a id="v6ext"></a>
 	<img src="figures/f04-13-9780123850591.png" width="400px"/>
 	<figcaption>IPv6 fragmentation extension header.</figcaption>

@@ -51,7 +51,7 @@ their own fiber, but they instead lease fiber from servicer providers,
 meaning that the private cloud backbone and the service provider
 backbones often share the same physical infrastructure.)
 
-<figure class="line">
+<figure>
 	<a id="cloud"></a>
 	<img src="figures/structure/Slide1.png" width="500px"/>
 	<figcaption>Cloud is widely distributed throughout the Internet 

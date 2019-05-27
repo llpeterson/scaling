@@ -287,7 +287,7 @@ to warrant it. Because building trees installs state in the routers
 along the tree, it is important that the default is to have only one
 tree for a group, not one for every sender to a group.
 
-<figure class="line">
+<figure>
 	<a id="pim-shared"></a>
 	<img src="figures/f04-14-9780123850591.png" width="600px"/>
 	<figcaption>PIM operation: (a) R4 sends a Join message to RP and joins
@@ -355,7 +355,7 @@ it causes the routers along the path (R3) to learn about the group, so
 that it will be possible for the DR to send the packet to the group as
 *native* (i.e., not tunneled) multicast packets.
 
-<figure class="line">
+<figure>
 	<a id="pim-deliver"></a>
 	<img src="figures/f04-15-9780123850591.png" width="500px"/>
 	<figcaption>Delivery of a packet along a shared tree. R1 tunnels
@@ -443,7 +443,7 @@ source arises. Each RP periodically uses MSDP to broadcast `Source
 Active` messages to its peers, giving the IP address of the source, the
 multicast group address, and the IP address of the originating RP.
 
-<figure class="line">
+<figure>
 	<a id="msdp"></a>
 	<img src="figures/f04-16-9780123850591.png" width="500px"/>
 	<figcaption>MSDP operation: (a) The source SR sends a Register message
@@ -554,7 +554,7 @@ as the final step of upstream forwarding, ensuring that all other
 routers on that link receive the packet. the [Figure 4(b)](#pim-bidir)
 illustrates the flow of multicast traffic originating at R1.
 
-<figure class="line">
+<figure>
 	<a id="pim-bidir"></a>
 	<img src="figures/f04-17-9780123850591.png" width="400px"/>
 	<figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join message toward

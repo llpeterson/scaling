@@ -43,7 +43,7 @@ to the cellular network in [Figure 1(b)](#mobileeg), somehow packets
 from the *correspondent node* need to find their way to the new network
 and then on to the mobile node.
 
-<figure class="line">
+<figure>
 	<a id="mobileeg"></a>
 	<img src="figures/f04-26-22092018.png" width="500px"/>
 	<figcaption>Forwarding packets from a correspondent node to a
@@ -154,7 +154,7 @@ away from its home network. We will consider first the operation of
 Mobile IP when a foreign agent is used. An example network with both
 home and foreign agents is shown in [Figure 2](#mobile).
 
-<figure class="line">
+<figure>
 	<a id="mobile"></a>
 	<img src="figures/f04-27-9780123850591.png" width="500px"/>
 	<figcaption>Mobile host and mobility agents.</figcaption>
