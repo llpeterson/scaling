@@ -6,8 +6,8 @@ designed in an era when computers were large, immobile devices, and,
 while the Internet's designers probably had some notion that mobile
 devices might appear in the future, it's fair to assume it was not a top
 priority to accommodate them. Today, of course, mobile computers are
-everywhere, notably in the forms of laptops and smartphones, and
-and increasingly in other forms, such as drones. In this section, we
+everywhere, notably in the form of laptops and smartphones, and
+increasingly in other forms, such as drones. In this section, we
 will look at some of the challenges posed by the appearance of mobile
 devices and some of the current approaches to accommodating
 them.
@@ -85,10 +85,10 @@ But rather than try to change TCP, a common alternative is for the
 application to periodically re-establish the TCP connection in case
 the client's IP address has changed. As strange as this sounds, if the
 application is HTTP-based (e.g., a web browser like Chrome or a
-streaming application like Netflix) then that exactly what happens. In
+streaming application like Netflix) then that is exactly what happens. In
 other words, the strategy is for the application to work around situations
 where the user's IP address may have changed, instead of trying to
-maintain the appearence that it does not change.
+maintain the appearance that it does not change.
 
 While we are all familiar with endpoints that move, it is worth noting
 that routers can also move. This is certainly less common today than
@@ -331,7 +331,7 @@ consumption and processing.
 
 Finally, we note that many open issues remain in mobile networking.
 Managing the power consumption of mobile devices is increasingly
-important, so that smaller devices with limited battery power can by
+important, so that smaller devices with limited battery power can be
 built. There is also the problem of *ad hoc* mobile networks—enabling
 a group of mobile nodes to form a network in the absence of any fixed
 nodes—which has some special challenges. A

@@ -298,7 +298,7 @@ tree for a group, not one for every sender to a group.
 </figure>
 
 When a router sends a `Join` message toward the RP for a group G, it
-is sent using normal IP unicast transmission. This is illustrated in the
+is sent using normal IP unicast transmission. This is illustrated in
 [Figure 1(a)](#pim-shared), in which router R4 is sending a `Join` to
 the rendezvous point for some group. The initial `Join` message is
 "wildcarded"; that is, it applies to all senders. A `Join` message
@@ -316,7 +316,7 @@ construction of the tree branch. The shared tree thus constructed is
 shown as a solid line from the RP to R4 in [Figure 1(a)](#pim-shared).
 
 As more routers send `Join`s toward the RP, they cause new branches to
-be added to the tree, as illustrated in the [Figure 1(b)](#pim-shared).
+be added to the tree, as illustrated in [Figure 1(b)](#pim-shared).
 Note that, in this case, the `Join` only needs to travel to R2, which
 can add the new branch to the tree simply by adding a new outgoing
 interface to the forwarding table entry created for this group. R2 need
@@ -326,7 +326,7 @@ this process is to build a tree whose root is the RP.
 At this point, suppose a host wishes to send a message to the group. To
 do so, it constructs a packet with the appropriate multicast group
 address as its destination and sends it to a router on its local network
-known as the *designated router* (DR). Suppose the DR is R1 in the
+known as the *designated router* (DR). Suppose the DR is R1 in
 [Figure 1](#pim-shared). There is no state for this multicast group
 between R1 and the RP at this point, so instead of simply forwarding the
 multicast packet, R1 *tunnels* it to the RP. That is, R1 encapsulates
@@ -349,8 +349,8 @@ can send to all receivers this way. However, there is some bandwidth
 inefficiency and processing cost in the encapsulation and decapsulation
 of packets on the way to the RP, so the RP forces knowledge about this
 group into the intervening routers so tunneling can be avoided. It sends
-a `Join` message toward the sending host (the
-[Figure 1(c)](#pim-shared)). As this `Join` travels toward the host,
+a `Join` message toward the sending host
+([Figure 1(c)](#pim-shared)). As this `Join` travels toward the host,
 it causes the routers along the path (R3) to learn about the group, so
 that it will be possible for the DR to send the packet to the group as
 *native* (i.e., not tunneled) multicast packets.
@@ -370,7 +370,7 @@ effect of the new `Join` is to create *sender-specific* state in the
 routers between the identified source and the RP. This is referred to as
 (S, G) state, since it applies to one sender to one group, and contrasts
 with the (\*, G) state that was installed between the receivers and the
-RP that applies to all senders. Thus, in the
+RP that applies to all senders. Thus, in
 [Figure 1(c)](#pim-shared), we see a source-specific route from R1 to
 the RP (indicated by the dashed line) and a tree that is valid for all
 senders from the RP to the receivers (indicated by the solid line).
@@ -456,7 +456,7 @@ multicast group address, and the IP address of the originating RP.
 
 If an MSDP peer RP that receives one of these broadcasts has active
 receivers for that multicast group, it sends a source-specific `Join`,
-on that RP's own behalf, to the source host, as shown in the
+on that RP's own behalf, to the source host, as shown in
 [Figure 3(a)](#msdp). The `Join` message builds a branch of the
 source-specific tree to this RP, as shown in [Figure 3(b)](#msdp).
 The result is that every RP that is part of the MSDP network and has
@@ -534,7 +534,7 @@ bidirectional—a router that receives a multicast packet from a
 downstream branch can forward it both up the tree and down other
 branches. The route followed to deliver a packet to any particular
 receiver goes only as far up the tree as necessary before going down the
-branch to that receiver. See the multicast route from R1 to R2 in the
+branch to that receiver. See the multicast route from R1 to R2 in
 [Figure 4(b)](#pim-bidir) for an example. R4 forwards a multicast
 packet downstream to R2 at the same time that it forwards a copy of the
 same packet upstream to R5.
@@ -544,20 +544,20 @@ RP. All that is needed is a routable address, which is known as an RP
 address even though it need not be the address of an RP or anything at
 all. How can this be? A `Join` from a receiver is forwarded toward the
 RP address until it reaches a router with an interface on the link where
-the RP address would reside, where the Join terminates. the
+the RP address would reside, where the Join terminates. 
 [Figure 4(a)](#pim-bidir) shows a `Join` from R2 terminating at R5,
 and a `Join` from R3 terminating at R6. The upstream forwarding of a
 multicast packet similarly flows toward the RP address until it reaches
 a router with an interface on the link where the RP address would
 reside, but then the router forwards the multicast packet onto that link
 as the final step of upstream forwarding, ensuring that all other
-routers on that link receive the packet. the [Figure 4(b)](#pim-bidir)
+routers on that link receive the packet. [Figure 4(b)](#pim-bidir)
 illustrates the flow of multicast traffic originating at R1.
 
 <figure>
 	<a id="pim-bidir"></a>
 	<img src="figures/f04-17-9780123850591.png" width="400px"/>
-	<figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join message toward
+	<figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join messages toward
 	the RP address that terminate when they reach a router on the RP
 	address's link. (b) A multicast packet from R1 is forwarded
 	upstream to the RP address's link and downstream wherever it

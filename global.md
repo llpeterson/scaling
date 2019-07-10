@@ -41,7 +41,7 @@ In 1990, this backbone was funded by the National Science Foundation
 NSFNET gave way to Internet2, which still runs a backbone on behalf of
 Research and Education institutions in the US (there are similar R&E
 networks in other countries), but of course most people get their
-Interent connectivity from commercial providers. Although the detail
+Internet connectivity from commercial providers. Although the detail
 is not shown in the figure, today the largest provider networks (they
 are called tier-1) are typically built from dozens of high-end routers
 located in major meteropolitan areas (colloquially referred to as "NFL

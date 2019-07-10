@@ -361,8 +361,8 @@ Thus, we observe that there was no requirement that R1 only send IP
 packets along this path—any data could be wrapped up in the MPLS
 header and it would follow the same path, because the intervening
 routers never look beyond the MPLS header. In this regard, an MPLS
-header is just like an IP tunnel header (excpet only 4 bytes long
-intead of 20 bytes). The only issue with sending
+header is just like an IP tunnel header (except only 4 bytes long
+instead of 20 bytes). The only issue with sending
 non-IP traffic along a tunnel, MPLS or otherwise, is what to do with
 non-IP traffic when it reaches the end of the tunnel. The general
 solution is to carry some sort of demultiplexing identifier in the
