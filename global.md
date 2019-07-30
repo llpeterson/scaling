@@ -152,7 +152,11 @@ flow between them because they are in different nonbackbone areas. It
 turns out that the need for scalability is often more important than the
 need to use the absolute shortest path.
 
+{% if output.name == "ebook" %}
+> **Key Takeaway**
+{% else %}
 > [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+{% endif %}
 > This illustrates an important principle in network design. There is
 > frequently a trade-off between scalability and some sort of optimality.
 > When hierarchy is introduced, information is hidden from some nodes in
@@ -494,7 +498,11 @@ have other providers as their customers. At the top, we have providers
 who have customers and peers but are not customers of anyone. These
 providers are known as the *Tier-1* providers.
 
+{% if output.name == "ebook" %}
+> **Key Takeaway**
+{% else %}
 > [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+{% endif %}
 > Let's return to the real question: How does all this help us to build
 > scalable networks? First, the number of nodes participating in BGP is on
 > the order of the number of autonomous systems, which is much smaller

@@ -71,7 +71,11 @@ interconnection points. A multicast tree constructed in this way is
 called an overlay, which is a topic that we return to in
 [Section 9.4](../applications/overlays.md).
 
+{% if output.name == "ebook" %}
+> **Broader Perspective**
+{% else %}
 > [!NOTE|label:Broader Perspective]
+{% endif %}
 > To continue reading about the cloudification of the Internet, see
 > [HTTP is the New Narrow Waist](../e2e/trend.md).
 >
