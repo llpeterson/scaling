@@ -309,7 +309,7 @@ to the rendezvous point for some group. The initial ``Join`` message is
 “wildcarded”; that is, it applies to all senders. A ``Join`` message
 clearly must pass through some sequence of routers before reaching the
 RP (e.g., R2). Each router along the path looks at the ``Join`` and
-creates a forwarding table entry for the shared tree, called a (*, G)
+creates a forwarding table entry for the shared tree, called a (\*, G)
 entry (where \* means “all senders”). To create the forwarding table
 entry, it looks at the interface on which the ``Join`` arrived and marks
 that interface as one on which it should forward data packets for this
@@ -318,8 +318,7 @@ group. It then determines which interface it will use to forward the
 incoming packets sent to this group. It then forwards the ``Join``
 toward the RP. Eventually, the message arrives at the RP, completing the
 construction of the tree branch. The shared tree thus constructed is
-shown as a solid line from the RP to R4 in :ref:`Figure
-1(a) <fig-pim-shared>`.
+shown as a solid line from the RP to R4 in :ref:`Figure 1(a) <fig-pim-shared>`.
 
 As more routers send ``Join``\ s toward the RP, they cause new branches
 to be added to the tree, as illustrated in :ref:`Figure
