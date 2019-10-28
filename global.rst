@@ -732,21 +732,22 @@ The current assignment of prefixes is listed in :ref:`Table 1 <tab-v6tab>`.
 
 .. _tab-v6tab:
 .. table:: Address Prefix Assignments for IPv6.
+   :align: center
    :widths: auto
 	    
-+-----------------+---------------------+
-| Prefix          | Use                 |
-+=================+=====================+
-| 00…0 (128 bits) | Unspecified         |
-+-----------------+---------------------+
-| 00…1 (128 bits) | Loopback            |
-+-----------------+---------------------+
-| 1111 1111       | Multicast addresses |
-+-----------------+---------------------+
-| 1111 1110 10    | Link-local unicast  |
-+-----------------+---------------------+
-| Everything else | Global Unicast      |
-+-----------------+---------------------+
+   +-----------------+---------------------+
+   | Prefix          | Use                 |
+   +=================+=====================+
+   | 00…0 (128 bits) | Unspecified         |
+   +-----------------+---------------------+
+   | 00…1 (128 bits) | Loopback            |
+   +-----------------+---------------------+
+   | 1111 1111       | Multicast addresses |
+   +-----------------+---------------------+
+   | 1111 1110 10    | Link-local unicast  |
+   +-----------------+---------------------+
+   | Everything else | Global Unicast      |
+   +-----------------+---------------------+
 
 This allocation of the address space warrants a little discussion.
 First, the entire functionality of IPv4’s three main address classes (A,
